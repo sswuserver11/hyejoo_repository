@@ -1,0 +1,43 @@
+<body>
+    <div id="wrap">
+        <section id="bottom">
+            <div class="a">
+                <!--동아리 이름 받아오기-->
+                <hr size="4" color="#6BB9ED">
+            </div>
+
+
+            <div class="p">
+                <br/><br/>
+
+                <p> <%= crew_info.application_question_1 %> </p>
+                <p> <%= crew_info.application_question_2 %> </p>
+                <p> <%= crew_info.application_question_3 %> </p>
+                <p> <%= crew_info.application_question_4 %> </p>
+                <p> <%= crew_info.application_question_5 %> </p>
+
+                <form name="apply_post" action="/apply" method="post">
+                <input type="text" name="application_ans1"  class="apply_ans">
+                <br/><br/>
+
+                <input type="text"  name="application_ans2"class="apply_ans">
+                <br/><br/>
+
+                <input type="text" name="application_ans3"  class="apply_ans">
+                <br/><br/>
+
+                <input type="text" name="application_ans4" class="apply_ans">
+                <br/><br/>
+
+                <input type="text" name="applicationans5" class="apply_ans">
+                <br/><br/><br/>
+
+                <input class="apply_submit" type="submit" value="제출하기">
+                </form>
+                <br/>
+            </div>
+
+        </section>
+
+    </div>
+</body>
