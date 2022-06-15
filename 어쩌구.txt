@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Crewpass</title>
+</head>
+
+
+<body>
+    <div id="wrap">
+        <header id="head">
+            <div id="title">
+
+                <button type = "button" class= "logo" onclick="location.href='http://localhost/'">
+                        <img src="/img/logo.JPG" width="200" height="60">
+                </button>
+
+                <hr size="4" color="#6BB9ED">
+            </div>
+
+            <nav id = "menu">
+                <ul>
+                    <a href="/myPage" class="side">마이페이지</a>
+                    <a href="#" class="side">로그아웃</a>
+                </ul>
+            </nav>
+        </header>
+
+         <div id="nav">
+                <div class="col-sm nav-align">
+                        <a href="/applied_member">
+                                <span class="button">applied_member</span>
+                        </a>
+                         <a href="/passwordSearch">
+                                <span class="button">passwordSearch</span>
+		</a>
+                        <a href="/apply">
+                                <span class="button">apply</span>
+                        </a>
+
+                </div>
+        </div>
+
+        <%- body %>
+
+   </div>
+</body>
+</html>
