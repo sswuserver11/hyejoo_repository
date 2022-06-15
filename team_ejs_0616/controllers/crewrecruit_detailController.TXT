@@ -1,0 +1,27 @@
+const db = require("../models/index");
+crewrecruit_detail = db.crewrecruit_detail;
+crew_info = db.crew_info;
+memberinfo = db.memberinfo;
+
+exports.showCrew_write=(req,res)=>{
+    res.render("crew_write");
+};
+
+
+exports.postedCrew_write=async(req,res)=>{
+    try{
+        user = await crewrecruit_detail.create({
+                recruit_numb:206,
+            identify_numb_manager:97867,
+            title:req.body.title,
+            detail_info:req.body.detail_info,
+            recruit_end:req.body.recruit_end
+        });
+        console.log("데이터 추가 완료");
+            res.render("index");
+    }catch(err){
+        res.status(500).send({
+            message:err.message
+        });
+    }
+};

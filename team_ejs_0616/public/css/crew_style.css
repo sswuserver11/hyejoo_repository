@@ -1,0 +1,310 @@
+/* 메인페이지시작(index.html) */
+nav{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    margin: 20px 0 0 15px;
+    border-bottom: 4px solid #6BB9ED;
+}
+/* 로그인 css */
+.login {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 30px;
+    list-style-type: none;
+    margin-right: 20px;
+}
+
+.login a{
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+}
+
+
+/* 동아리 모집글 css */
+.crew__header{
+    padding-top: 25px;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+}
+
+.crew__title{
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.filter{
+    font-size: 26px;
+    font-weight: 800;
+    border-radius: 6px;
+    border:none;
+    cursor: pointer;
+}
+
+.crew__box{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 100px;
+    margin: 50px 30px 0 30px;
+}
+
+.crewpost{
+    border:1px solid rgb(230,227,227);
+    border-radius: 6px;
+    box-shadow: 0 2px 2px 0 rgb(214,214,214);
+}
+
+.crew__img{
+    background-image: url("../img/poster.JPG");
+    height: 180px;
+    background-size: 100% 100%;
+}
+
+.crew__name{
+    margin:10px 0 10px 0;
+    font-size:30px;
+}
+
+.crew__like{
+    margin:10px 0 10px 0;
+    font-size:20px;
+    color: grey;
+}
+
+.watch__crew{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+}
+
+.btn-group{
+    padding-top: 70px;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-group button{
+    background-color: #5DE0FB;
+    color:white;
+    height: 35px;
+    width: 35px;
+    font-size: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid rgb(230,227,227);
+}
+
+
+
+
+
+
+
+
+#wrap{
+    width: 100%;
+}
+
+#head {
+    height: 100px;
+    position: relative;
+}
+
+#title{
+    position: relative;
+}
+
+#head > #menu{
+    position: absolute;
+    right: 0; top: 0;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    margin-right:1%;
+}
+
+.side{
+    text-decoration:none;
+    color: black;
+}
+
+
+#wrap > #bottom > .apply_detail{
+    margin-left: 5%;
+}
+
+.apply_ques{
+    margin-left: 5%;
+}
+
+.apply_ans{
+    width: 90%; height: 200px; margin-left: 5%; margin-right: 5%;
+}
+
+.apply_file{
+    height: 100px; margin-left: 5%;
+}
+
+.apply_submit{
+    margin-left: 5%;
+    }
+
+
+
+.crew_info{
+    margin-left: 5%;
+}
+
+.crew_detail_info{
+    width: 90%;
+    height: 400px;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.crew{
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.crew_name{
+    margin-left: 5%;
+}
+
+.crew_date{
+    height: 100px;
+    margin-left: 5%;
+}
+
+.crew_start{
+    width: 150px;
+    height: 30px;
+    font-size: 15px;
+}
+
+.crew_end{
+    width: 150px;
+    height: 30px;
+    font-size: 15px;
+}
+
+.crew_line{
+        margin-left:5%
+}
+
+
+.crew_gather{
+    margin-left:5%;
+}
+
+.crew_gather_detail{
+    width: 95%;
+    height: 400px;
+    margin-right:5%;
+    word-break: normal;
+}
+
+
+.crew_upload{
+    margin-left: 5%;
+   /* font-size: 20px; 
+    width: 250px; 
+    height: 50px; 
+    background-color: lightgray;*/
+}
+
+
+#setting{
+    line-height: 40px;
+}
+
+.word{
+    font-size: 40px;
+    text-align: center;
+}
+
+.fix{
+    width: 100%;
+    margin-left:30vw;
+    margin-right:30vw;
+}
+
+.name_check{
+    font-size: 25px;
+    font-weight: bold;
+    text-align:left;
+    line-height: 1px;
+}
+
+.crewname_check{
+    width: 30%;
+    text-align: left;
+}
+
+.check{
+    width: 5%;
+}
+
+.numb_check{
+    font-size: 25px;
+    font-weight: bold;
+    text-align:left;
+    line-height: 1px;
+}
+
+
+
+/*추가한 거*/
+h4{
+       height:0px;
+                   text-align:center;
+                font-size: 40px;
+                font-weight: bold;
+        }
+h5{
+                height: 0px;
+                  font-size: 25px;
+                  font-weight: bold;
+            }
+tr{
+                height: 60px;
+            }
+            .totalTable{
+                width:35%;
+                margin: 0 auto;
+                border: hidden;
+            }
+            #crew_name{
+                height:30px;
+                width: 50%;
+            }
+            #registerCheckFunction{
+                width: 15%;
+            }
+            #submit{
+                width:15%;
+                margin:auto;
+                display:block;
+            }
+            .field-table{
+                width: 100%;
+                text-align:center;
+                border: hidden;
+                font-size: 20px;
+                  font-weight: bold;
+                  color:rgb(122, 121, 121);
+            }
+            .region-table{
+                width: 100%;
+                text-align:center;
+                border: hidden;
+                font-size: 20px;
+                  font-weight: bold;
+                  color:rgb(122, 121, 121);
+            }
+            .application_questions{
+                height:30px;
+                width: 100%;
+            }
+

@@ -1,0 +1,65 @@
+'use strict';
+
+const fs = require('fs');
+const path = require('path');
+const Sequelize = require('sequelize');
+const basename = path.basename(__filename);
+const env = process.env.NODE_ENV || 'development';
+const config = require(__dirname + '/../config/config.js')[env];
+const db = {};
+
+let sequelize = new Sequelize(config.database, config.username, config.password, config);
+/* if (config.use_env_variable) {
+  sequelize = new Sequelize(config.database, config.username, config.password, config);
+} else {
+  sequelize = new Sequelize(config.database, config.username, config.password, config);
+} */
+
+
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+
+db.memberinfo = require("./memberinfo.js")(sequelize, Sequelize);
+db.application = require("./application.js")(sequelize, Sequelize);
+
+
+db.crew_info = require("./crew_info.js")(sequelize,Sequelize);
+db.crewrecruit_detail = require("./crewrecruit_detail.js")(sequelize, Sequelize);
+
+// application_ques 에서 crew_info 외래키인 부분 설정/연결
+db.crew_info.hasMany(db.application, {
+    foreignKey: 'identify_numb_manager',
+    primaryKey: true,
+    allowNull: false,
+    constraints: true,
+    onDelete: 'cascade'
+});
+db.application.belongsTo(db.crew_info, {
+        foreignKey: 'identify_numb_manager'
+});
+
+
+db.memberinfo.hasMany(db.application, {
+        foreignKey: 'email',
+        primaryKey: true,
+        allowNull: false,
+        constraints: true,
+        onDelete: 'cascade'
+});
+db.application.belongsTo(db.memberinfo, {
+        foreignKey: 'email'
+});
+
+db.crew_info.hasMany(db.crewrecruit_detail, {
+    foreignKey: 'identify_numb_manager',
+    primaryKey: true,
+    allowNull: false,
+    constraints: true,
+    onDelete: 'cascade'
+});
+db.crewrecruit_detail.belongsTo(db.crew_info, {
+    foreignKey: 'identify_numb_manager'
+});
+
+module.exports = db;
+                                                                                            

@@ -1,0 +1,42 @@
+const db = require("../models/index"),
+        Crew_info = db.crew_info,
+        application = db.application;
+
+exports.showApply = async (req, res) => {
+        try {
+                data = await Crew_info.findOne({
+                        where: { identify_numb_manager : "10" }
+                });
+                res.locals.data = data;
+                res.render("apply", {crew_info: data});
+        }catch(err) {
+                res.status(500).send({
+                        message: err.message
+                });
+        }
+
+};
+
+exports.submit_application = async (req, res) => {
+        try{
+
+                await application.create(
+                        {
+                                supporter_numb : 1111,
+                                identify_numb_manager: 10,
+                                email : "12345",
+                                application_ans1 : req.body.application_ans1,
+                                application_ans2 : req.body.application_ans2,
+                                application_ans3 : req.body.application_ans3,
+                                application_ans4 : req.body.application_ans4,
+                                application_ans5 : req.body.application_ans5,
+                                pass_TF: "미정"
+                        });
+                console.log("데이터 추가 완료");
+                res.render("/"); // 임시로 홈으로 연결함
+        }catch(err) {
+                res.status(500).send({
+                        message: err.message
+                });
+        }
+};

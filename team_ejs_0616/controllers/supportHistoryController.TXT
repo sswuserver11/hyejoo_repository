@@ -1,0 +1,24 @@
+const db=require("../models/index"),
+    Crew_info=db.crew_info,
+        Application = db.application;
+
+/*exports.showsupportHistory=(req,res)=>{
+    res.render("supportHistory");
+};*/
+
+exports.showsupportHistory= async (req,res)=>{
+    try {
+        data = await Application.findAll({
+                 where: {
+                         email : "123@sungshin.ac.kr"
+
+                 }
+        });
+            res.locals.data = data;
+            res.render("supportHistory", {application: data});
+    }catch(err){
+                res.status(500).send({
+                        message: err.message
+                });
+        }
+};

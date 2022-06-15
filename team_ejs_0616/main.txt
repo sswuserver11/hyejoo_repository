@@ -1,0 +1,80 @@
+const express = require("express"),
+  app = express(),
+  homeController = require("./controllers/homeController"),
+  errorController = require("./controllers/errorController"),
+  passwordChangeController = require("./controllers/passwordChangeController"),
+  apply_controller = require("./controllers/apply_controller"),
+  myPageController = require("./controllers/myPageController"),
+  appliedMemberController = require("./controllers/appliedMemberController"),
+  crewrecruit_detailController = require("./controllers/crewrecruit_detailController"),
+  apply_detailController = require("./controllers/apply_detailController"),
+  crewSubmitController=require("./controllers/crewSubmitController"),
+  supportHistoryController=require("./controllers/supportHistoryController"),
+  layouts = require("express-ejs-layouts"),
+  db = require("./models/index"),
+        Sequielize = db.Sequelize;
+
+const router = require('express').Router();
+
+
+
+app.set("view engine", "ejs");
+app.set("port", process.env.PORT || 80);
+
+router.use(
+  express.urlencoded({
+    extended: false
+  })
+);
+
+
+router.use(express.json());
+
+router.use(layouts);
+router.use(express.static("public"));
+
+router.get("/", (req, res) => {
+        res.render("index");
+});
+
+
+//컨트롤러-동아리 가입
+router.get("/crewSubmit", crewSubmitController.showcrewSubmit);
+router.post("/crewSubmit", crewSubmitController.saveCrew); //crewSubmit.ejs의 form에서 보낸 POST에 대한 답변 실
+행
+
+
+
+
+router.get("/myPage", myPageController.showMyPage);
+
+
+//컨트롤러-지원이력
+app.get("/supportHistory",supportHistoryController.showsupportHistory);
+
+router.get("/applied_member", appliedMemberController.showAppliedMember);
+
+router.get("/passwordSearch", passwordChangeController.showPasswordSearch);
+router.post("/passwordSearch", passwordChangeController.passwordChange);
+
+
+router.get("/apply", apply_controller.showApply);
+router.post("/apply", apply_controller.submit_application);
+
+
+router.get("/apply_detail", apply_detailController.showApply_detail);
+router.get("/crew_write", crewrecruit_detailController.showCrew_write);
+router.post("/crew_write", crewrecruit_detailController.postedCrew_write);
+
+
+router.use(errorController.pageNotFoundError);
+router.use(errorController.internalServerError);
+
+app.use("/", router);
+
+app.listen(app.get("port"), () => {
+  console.log(`Server running at http://localhost:${app.get("port")}`);
+});
+
+module.exports = router;
+                                  
