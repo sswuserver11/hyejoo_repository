@@ -1,0 +1,23 @@
+const db=require("../models/index"),
+    Crew_info=db.crew_info,
+        Application = db.application;
+
+/*exports.showsupportHistory=(req,res)=>{
+    res.render("supportHistory");
+};*/
+
+exports.showSupportHistoryList= async (req,res)=>{
+    try {
+
+            let data = await Crew_info.findAll({
+                    where: { identify_numb_manager : "53327" }
+            });
+            res.locals.data = data;
+            res.render("supportHistory", {crew_info: data});
+    }catch(err){
+                res.status(500).send({
+                        message: err.message
+                });
+        }
+};
+~    

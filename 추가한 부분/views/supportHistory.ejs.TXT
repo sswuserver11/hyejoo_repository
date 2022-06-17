@@ -1,0 +1,27 @@
+<section>
+  <h2 style="font-size: 40px; text-align: center;">
+    지원 이력
+  </h2>
+  <!--지원 이력 표-->
+  <div style="width: 100%; margin-left:30vw; margin-right:30vw;">
+    <table style="width:40%">
+        <thead>
+            <tr>
+                <th style="width: 10%;">No.</th>
+                <th style="width: 30%;">동아리명</th>
+              </tr>
+        </thead>
+        <tbody>
+        <% num= 1; %>
+        <% crew_info.forEach(crew_info => { %>
+        <tr>
+                <td><%= num %></td>
+                <td><a href="/applied_member/<%=crew_info.identify_numb_manager%>"> <%= crew_info.crew_name %></a></td>
+                <td></td>
+        <% num += 1; %>
+        </tr>
+        <% }); %>
+        </tbody>
+    </table>
+  </div>
+</section>
